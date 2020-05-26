@@ -15,5 +15,9 @@ public class Hero {
     int id;
     String name;
     String winRate;
-
+    String lodingName;
+    String lodingRate;
+    String restName;
+    String restRate;
+    String level;
 }

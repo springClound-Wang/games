@@ -4,16 +4,26 @@
 
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="com.example.demo.model.Hero">
 
-    select 
+    select
  *
     from lol_hero
     where name = #{name}
   </select>
+    <select id="selectByList" parameterType="java.lang.String" resultType="com.example.demo.model.Hero">
+
+    select  * from lol_hero o, lol_loding l where name=#{name} and o.id=l.hero_id  ORDER BY l.loding_rate desc limit 3
+
+  </select>
+    <select id="selectByRest" parameterType="java.lang.String" resultType="com.example.demo.model.Hero">
+
+    select  * from lol_hero o, lol_rest l where name=#{name} and o.id=l.hero_id  ORDER BY l.rest_rate desc limit 3
+
+  </select>
 
   <insert id="insert" parameterType="com.example.demo.model.Hero">
 
-    insert into lol_hero (name, win_rate)
-    values (#{name,jdbcType=VARCHAR},#{winRate})
+    insert into lol_hero (name, win_rate,level)
+    values (#{name,jdbcType=VARCHAR},#{winRate},#{level})
   </insert>
 
 </mapper>
