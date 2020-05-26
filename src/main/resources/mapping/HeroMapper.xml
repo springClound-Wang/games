@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.HeroMapper">
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="com.example.demo.model.Hero">
+
+    select 
+ *
+    from lol_hero
+    where name = #{name}
+  </select>
+
+  <insert id="insert" parameterType="com.example.demo.model.Hero">
+
+    insert into lol_hero (name, win_rate)
+    values (#{name,jdbcType=VARCHAR},#{winRate})
+  </insert>
+
+</mapper>
